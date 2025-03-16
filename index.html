@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destino Laboral - ¿Cómo afectará la IA a tu profesión?</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Destino<span>Laboral</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">¿Cómo afectará la IA a tu profesión?</h1>
+                <p class="hero-subtitle">Descubre el impacto que la inteligencia artificial tendrá en tu trabajo en los próximos años y prepárate para el futuro laboral.</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="job-search" class="search-input" placeholder="Escribe tu profesión...">
+                <div id="search-results" class="search-results">
+                    <div id="no-results" class="no-results">No se encontraron resultados</div>
+                    <div id="create-new" class="create-new">Crear nuevo trabajo</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">© 2025 DestinoLaboral. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Convert YAML to JS array
+        const empleosList = [
+            "Abogado(a)", "Administrador(a)", "Administrador(a) hotelero(a)", "Agente de seguridad", 
+            "Agente de viajes", "Agricultor(a)", "Albañil", "Antropólogo(a)", "Arqueólogo(a)", 
+            "Arquitecto(a)", "Artesano(a)", "Asistente administrativo(a)", "Asistente de ventas", 
+            "Auditor(a)", "Auxiliar de educación", "Auxiliar de enfermería", "Barman/Bartender", 
+            "Bibliotecario(a)", "Biólogo(a)", "Bombero(a)", "Cajero(a)", "Camarógrafo(a)", 
+            "Carpintero(a)", "Cerrajero(a)", "Chef", "Cocinero(a)", "Community manager", 
+            "Conductor(a)", "Constructor(a)", "Consultor(a)", "Contador(a)", "Cosmetólogo(a)", 
+            "Decorador(a) de interiores", "Dentista", "Desarrollador(a) de software", 
+            "Despachador(a) aduanero(a)", "Dietista", "Director(a) de centro educativo", 
+            "Diseñador(a) gráfico(a)", "Docente universitario(a)", "Economista", "Electricista", 
+            "Enfermero(a)", "Estilista", "Farmacéutico(a)", "Fisioterapeuta", "Florista", 
+            "Fontanero(a)/Gasfitero(a)", "Fotógrafo(a)", "Funcionario(a) público(a)", "Ganadero(a)", 
+            "Geólogo(a)", "Gerente", "Guía turístico(a)", "Ingeniero(a) agrónomo(a)", 
+            "Ingeniero(a) civil", "Ingeniero(a) de minas", "Ingeniero(a) de sistemas", 
+            "Ingeniero(a) eléctrico(a)", "Ingeniero(a) industrial", "Ingeniero(a) mecánico(a)", 
+            "Ingeniero(a) químico(a)", "Jardinero(a)", "Joyero(a)", "Locutor(a)", "Maestro(a) de obra", 
+            "Marketing digital", "Mecánico(a)", "Médico(a)", "Mesero(a)/Mozo(a)", "Militar", 
+            "Minero(a)", "Modelo", "Mototaxista", "Músico(a)", "Notario(a)", "Nutricionista", 
+            "Obrero(a)", "Obstetra", "Odontólogo(a)", "Operador(a) de call center", "Operador(a) de caja", 
+            "Operador(a) de maquinaria pesada", "Panadero(a)", "Paramédico(a)", "Peluquero(a)", 
+            "Periodista", "Pescador(a)", "Piloto", "Pintor(a)", "Plomero(a)", "Policía", 
+            "Profesor(a) de educación física", "Profesor(a) de educación inicial", 
+            "Profesor(a) de educación primaria", "Profesor(a) de educación secundaria", 
+            "Programador(a)", "Psicólogo(a)", "Publicista", "Químico(a)", "Recepcionista", 
+            "Repartidor(a)", "Secretario(a)", "Serenazgo", "Sociólogo(a)", "Soldador(a)", 
+            "Supervisor(a)", "Taxista", "Técnico(a) agropecuario(a)", "Técnico(a) de laboratorio", 
+            "Técnico(a) de refrigeración", "Técnico(a) dental", "Técnico(a) en computación", 
+            "Técnico(a) en enfermería", "Técnico(a) en radiología", "Técnico(a) farmacéutico(a)", 
+            "Terapeuta ocupacional", "Trabajador(a) social", "Traductor(a)/Intérprete", 
+            "Vendedor(a)", "Veterinario(a)", "Vigilante", "Zapatero(a)"
+        ];
+    </script>
+    <script src="data/jobs-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
