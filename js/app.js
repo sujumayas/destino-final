@@ -19,7 +19,33 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle input in the search box
         searchInput.addEventListener('input', function() {
             const query = this.value.trim();
-            
+            updateSearchResults(query, allJobs);
+        });
+        
+        // Handle clicking on "Create New"
+        createNew.addEventListener('click', function() {
+            const newJob = searchInput.value.trim();
+            window.location.href = `job-detail.html?job=${encodeURIComponent(newJob)}&new=true`;
+        });
+        
+        // Hide results when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+                searchResults.classList.remove('show');
+            }
+        });
+        
+        // Show results when focusing on input
+        searchInput.addEventListener('focus', function() {
+            if (this.value.trim() !== '') {
+                // Re-filter and show results based on current input
+                const query = this.value.trim();
+                updateSearchResults(query, allJobs);
+            }
+        });
+        
+        // Helper function to update search results
+        function updateSearchResults(query, jobs) {
             // If query is empty, hide results
             if (query === '') {
                 searchResults.classList.remove('show');
@@ -27,20 +53,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Filter jobs based on query
-            const filteredJobs = searchJobs(query, allJobs);
+            const filteredJobs = searchJobs(query, jobs);
             
             // Clear previous results
             searchResults.innerHTML = '';
+            
+            // Reset highlighted result
+            highlightedResult = null;
             
             // Show/hide no results message
             if (filteredJobs.length === 0) {
                 noResults.style.display = 'block';
                 createNew.style.display = 'block';
                 createNew.textContent = `Crear nuevo trabajo: "${query}"`;
+                searchResults.appendChild(noResults);
+                searchResults.appendChild(createNew);
             } else {
-                noResults.style.display = 'none';
-                createNew.style.display = 'none';
-                
                 // Add filtered jobs to results
                 filteredJobs.forEach((job, index) => {
                     const resultItem = document.createElement('div');
@@ -64,27 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show results
             searchResults.classList.add('show');
-        });
-        
-        // Handle clicking on "Create New"
-        createNew.addEventListener('click', function() {
-            const newJob = searchInput.value.trim();
-            window.location.href = `job-detail.html?job=${encodeURIComponent(newJob)}&new=true`;
-        });
-        
-        // Hide results when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
-                searchResults.classList.remove('show');
-            }
-        });
-        
-        // Show results when focusing on input
-        searchInput.addEventListener('focus', function() {
-            if (this.value.trim() !== '') {
-                searchResults.classList.add('show');
-            }
-        });
+        }
         
         // Handle keyboard navigation (TAB for autocomplete, ENTER for search)
         searchInput.addEventListener('keydown', function(e) {
@@ -100,6 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // If we have a highlighted result, use it for autocomplete
                 if (highlightedResult && highlightedResult.dataset.job) {
                     searchInput.value = highlightedResult.dataset.job;
+                    // Hide dropdown but don't completely update the search results
+                    // so that ENTER still works with the completed term
                     searchResults.classList.remove('show');
                 }
             }
@@ -110,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const searchTerm = searchInput.value.trim();
                 
                 if (searchTerm !== '') {
+                    // Close the dropdown first to ensure we use exactly what's in the input field
+                    searchResults.classList.remove('show');
                     // Navigate to the job detail page with the current search term
                     window.location.href = `job-detail.html?job=${encodeURIComponent(searchTerm)}`;
                 }
