@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the job list from YAML file and convert to JS array
     const allJobs = typeof empleosList !== 'undefined' ? empleosList : [];
     
+    // Variable to track the currently highlighted result
+    let highlightedResult = null;
+    
     // Elements
     const searchInput = document.getElementById('job-search');
     const searchResults = document.getElementById('search-results');
@@ -39,10 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 createNew.style.display = 'none';
                 
                 // Add filtered jobs to results
-                filteredJobs.forEach(job => {
+                filteredJobs.forEach((job, index) => {
                     const resultItem = document.createElement('div');
                     resultItem.classList.add('result-item');
+                    // Highlight the first result
+                    if (index === 0) {
+                        resultItem.classList.add('highlighted');
+                        highlightedResult = resultItem;
+                    }
                     resultItem.textContent = job;
+                    resultItem.dataset.job = job; // Store job name in dataset for easy access
                     
                     // Handle clicking on a result
                     resultItem.addEventListener('click', function() {
@@ -74,6 +83,36 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.addEventListener('focus', function() {
             if (this.value.trim() !== '') {
                 searchResults.classList.add('show');
+            }
+        });
+        
+        // Handle keyboard navigation (TAB for autocomplete, ENTER for search)
+        searchInput.addEventListener('keydown', function(e) {
+            // Only process if the dropdown is visible
+            if (!searchResults.classList.contains('show')) {
+                return;
+            }
+            
+            // TAB key - autocomplete with first option
+            if (e.key === 'Tab') {
+                e.preventDefault(); // Prevent default tab behavior
+                
+                // If we have a highlighted result, use it for autocomplete
+                if (highlightedResult && highlightedResult.dataset.job) {
+                    searchInput.value = highlightedResult.dataset.job;
+                    searchResults.classList.remove('show');
+                }
+            }
+            
+            // ENTER key - search with current input
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+                
+                if (searchTerm !== '') {
+                    // Navigate to the job detail page with the current search term
+                    window.location.href = `job-detail.html?job=${encodeURIComponent(searchTerm)}`;
+                }
             }
         });
     }
