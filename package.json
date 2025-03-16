@@ -1,0 +1,11 @@
+{
+  "name": "destino-laboral",
+  "version": "1.0.0",
+  "description": "Aplicación que muestra el impacto de la IA en diferentes profesiones",
+  "scripts": {
+    "build": "node build-jobs.js"
+  },
+  "dependencies": {
+    "glob": "^7.2.0"
+  }
+}

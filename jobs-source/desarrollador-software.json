@@ -1,0 +1,47 @@
+{
+  "key": "Desarrollador(a) de software",
+  "title": "Desarrollador(a) de software",
+  "description": "Profesional encargado de diseñar, programar y probar aplicaciones y sistemas informáticos, investigando y aplicando las últimas tecnologías para resolver problemas específicos.",
+  "riskPercentage": 35,
+  "motivationalPhrase": "Tu capacidad para innovar y crear nueva tecnología te mantiene a la vanguardia de la revolución digital. La IA te convierte en un profesional más eficiente.",
+  "similarJobs": [
+    {
+      "title": "Ingeniero(a) de sistemas",
+      "riskLevel": 40,
+      "riskColor": "#f1c40f",
+      "riskText": "Riesgo Medio-Bajo"
+    },
+    {
+      "title": "Analista de datos",
+      "riskLevel": 25,
+      "riskColor": "#2ecc71",
+      "riskText": "Riesgo Bajo"
+    },
+    {
+      "title": "Programador(a)",
+      "riskLevel": 45,
+      "riskColor": "#f1c40f",
+      "riskText": "Riesgo Medio"
+    },
+    {
+      "title": "Diseñador(a) UX/UI",
+      "riskLevel": 30,
+      "riskColor": "#2ecc71",
+      "riskText": "Riesgo Bajo"
+    }
+  ],
+  "triviaData": [
+    "Se estima que para 2030, la demanda de desarrolladores de software crecerá un 22%, mucho más rápido que el promedio de otras ocupaciones.",
+    "La IA está creando nuevas especialidades dentro del desarrollo de software, especialmente en aprendizaje automático e IA ética.",
+    "Los desarrolladores que pueden resolver problemas complejos y tienen habilidades de colaboración seguirán siendo muy valorados incluso con la automatización.",
+    "La herramienta GitHub Copilot, basada en IA, ya asiste a desarrolladores completando código, pero no reemplaza el razonamiento humano.",
+    "Más del 75% de las empresas consideran que la escasez de desarrolladores de software calificados es una barrera para la innovación."
+  ],
+  "otherJobsInterest": [
+    "Ingeniero(a) de datos",
+    "Arquitecto(a) de software",
+    "DevOps Engineer",
+    "Especialista en ciberseguridad",
+    "Consultor(a) tecnológico(a)"
+  ]
+}
