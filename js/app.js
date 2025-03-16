@@ -96,28 +96,25 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Handle keyboard navigation (TAB for autocomplete, ENTER for search)
         searchInput.addEventListener('keydown', function(e) {
-            // Only process if the dropdown is visible
-            if (!searchResults.classList.contains('show')) {
-                return;
-            }
+            const searchTerm = searchInput.value.trim();
             
             // TAB key - autocomplete with first option
-            if (e.key === 'Tab') {
+            if (e.key === 'Tab' && searchResults.classList.contains('show')) {
                 e.preventDefault(); // Prevent default tab behavior
                 
                 // If we have a highlighted result, use it for autocomplete
                 if (highlightedResult && highlightedResult.dataset.job) {
                     searchInput.value = highlightedResult.dataset.job;
                     // Hide dropdown but don't completely update the search results
-                    // so that ENTER still works with the completed term
                     searchResults.classList.remove('show');
+                    // Force the input to maintain focus for the ENTER key
+                    searchInput.focus();
                 }
             }
             
             // ENTER key - search with current input
             if (e.key === 'Enter') {
                 e.preventDefault();
-                const searchTerm = searchInput.value.trim();
                 
                 if (searchTerm !== '') {
                     // Close the dropdown first to ensure we use exactly what's in the input field
