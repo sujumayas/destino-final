@@ -32,3 +32,6 @@ yarn-error.log*
 /dist
 /build
 /out
+
+# Docs
+/docs
